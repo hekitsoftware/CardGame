@@ -13,6 +13,9 @@ public class Card : MonoBehaviour,
     [SerializeField] public GameManager gameManager;
     private Canvas cardCanvas;
 
+    [Header("Visual")]
+    [SerializeField] public Sprite cardSprite;
+
     [Header("Movement")]
     public float moveSpeed;
     [HideInInspector] public Vector3 dragTargetPos;
@@ -37,6 +40,7 @@ public class Card : MonoBehaviour,
         moveSpeed = gameManager.cardSpeed;
         cardCanvas = GetComponentInParent<Canvas>();
         dragTargetPos = transform.position; // target start at card's relative starting position
+        cardFace.sprite = cardSprite;
     }
 
     private void Update()
@@ -52,10 +56,12 @@ public class Card : MonoBehaviour,
 
             float tiltZ = Mathf.Clamp(dir.x * 5f, -15f, 15f);
             transform.rotation = Quaternion.Euler(0, 0, tiltZ);
+            transform.position = new Vector3(transform.position.x, transform.position.y, -10);
         }
         else
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
+            transform.position = new Vector3(transform.position.x, transform.position.y, -1);
         }
     }
 
