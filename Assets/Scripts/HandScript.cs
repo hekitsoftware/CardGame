@@ -117,7 +117,11 @@ public class HandScript : MonoBehaviour
         foreach (Card card in cardsInHand)
         {
             if (card != null)
+            {
+                // Stop DOTween tweens before destroying
+                card.StopIdleRotation();
                 Destroy(card.gameObject);
+            }
         }
 
         // Clear the hand list

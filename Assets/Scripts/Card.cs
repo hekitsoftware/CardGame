@@ -133,6 +133,7 @@ public class Card : MonoBehaviour,
 
         idleTween = DOVirtual.Float(0, 1, 1f / rotationSpeed, t =>
         {
+            if (this == null) return; // safely exit if destroyed
             time += Time.deltaTime * rotationSpeed;
             float rotX = Mathf.Cos(time + timeOffset) * rotationAmplitude;
             float rotY = Mathf.Sin(time + timeOffset) * rotationAmplitude;
