@@ -23,6 +23,7 @@ public class Card : MonoBehaviour,
     [SerializeField] public Selectable cardLogic;
     [SerializeField] public SpriteRenderer cardFace;
     [SerializeField] public GameManager gameManager;
+    [HideInInspector] public Transform parentSlot;
     private Canvas cardCanvas;
 
     [Header("Visual")]
@@ -53,6 +54,16 @@ public class Card : MonoBehaviour,
     public Material foilMat;
     public Material inverseMat;
     public Material voidMat;
+
+    public void SetupCard(CardID cardID, CardFinish cardFinish)
+    {
+        // Assign the ID and finish
+        ID = cardID;
+        finish = cardFinish;
+
+        // Apply artwork and material
+        ApplyFinish(cardID);
+    }
 
     private void Start()
     {

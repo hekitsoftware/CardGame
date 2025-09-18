@@ -686,8 +686,8 @@ GameObject:
   - component: {fileID: 1695813067}
   - component: {fileID: 1695813069}
   - component: {fileID: 1695813068}
-  - component: {fileID: 1695813070}
   - component: {fileID: 1695813071}
+  - component: {fileID: 1695813072}
   m_Layer: 5
   m_Name: CardContainer
   m_TagString: Untagged
@@ -752,30 +752,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1695813066}
   m_CullTransparentMesh: 1
---- !u!114 &1695813070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1695813066}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
-  m_ChildAlignment: 4
-  m_StartCorner: 0
-  m_StartAxis: 0
-  m_CellSize: {x: 100, y: 100}
-  m_Spacing: {x: 150, y: 0}
-  m_Constraint: 2
-  m_ConstraintCount: 1
 --- !u!114 &1695813071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -788,7 +764,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b2b69a0071537c4da8d242a16cb43b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rect: {fileID: 0}
+  rect: {fileID: 1695813067}
   handSlotPrefab: {fileID: 4086312848631142651, guid: 796aea8e1c363624c823f2fb542149cf, type: 3}
   cardPrefab: {fileID: 8033129998265726993, guid: cb4c99ea8d55b094b9a2b9c4be78a3cd, type: 3}
   allCardIDs:
@@ -817,6 +793,32 @@ MonoBehaviour:
   - finish: 4
     chance: 0.2
   cardsToSpawn: 6
+--- !u!114 &1695813072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1695813066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 4
+  m_Spacing: 20
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &2009760873
 GameObject:
   m_ObjectHideFlags: 0
