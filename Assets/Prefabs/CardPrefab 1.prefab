@@ -193,11 +193,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c66602dae1d97d4b895a412da309446, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: {fileID: 0}
+  finish: 0
   cardLogic: {fileID: 5847453065027591528}
   cardFace: {fileID: 7890270189625085632}
   gameManager: {fileID: 3709598201433297923, guid: 6dac222a73f80ef439019e3af5fd60a8, type: 3}
   cardSprite: {fileID: 21300000, guid: 4887124edc8a5464f9e7a9a2dd26e1bd, type: 3}
-  moveSpeed: 0
+  moveSpeed: 20
   dragTargetPos: {x: 0, y: 0, z: 0}
   isHovering: 0
   isSelected: 0
@@ -223,6 +225,11 @@ MonoBehaviour:
   SelectEvent:
     m_PersistentCalls:
       m_Calls: []
+  normalMat: {fileID: 2100000, guid: aa810ba1aec3fd74a9d440a8bd1b356c, type: 2}
+  holoMat: {fileID: 2100000, guid: e7a55c5f5ba338d4aa430dda0b4d23b5, type: 2}
+  foilMat: {fileID: 2100000, guid: 7dcc84f4805a28e40aaeb3e71c196a06, type: 2}
+  inverseMat: {fileID: 2100000, guid: 948b3aa2f008fa341ab93dd75471f5c7, type: 2}
+  voidMat: {fileID: -876546973899608171, guid: 1677a7d93764aa845a7c1a4989c0b4b3, type: 3}
 --- !u!1 &7548477533919579019
 GameObject:
   m_ObjectHideFlags: 0

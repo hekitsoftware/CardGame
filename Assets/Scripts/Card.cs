@@ -3,10 +3,22 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+public enum CardFinish
+{
+    Matte,
+    Holographic,
+    Foil,
+    Inverse,
+    Void,
+}
+
 public class Card : MonoBehaviour,
     IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerEnterHandler,
     IPointerExitHandler, IPointerUpHandler, IPointerDownHandler
 {
+    [SerializeField] public CardID ID;
+    [SerializeField] public CardFinish finish;
+
     [Header("References")]
     [SerializeField] public Selectable cardLogic;
     [SerializeField] public SpriteRenderer cardFace;
@@ -35,12 +47,43 @@ public class Card : MonoBehaviour,
     [HideInInspector] public UnityEvent<Card> EndDragEvent;
     [HideInInspector] public UnityEvent<Card, bool> SelectEvent;
 
+    [Header("FinishMaterials")]
+    public Material normalMat;
+    public Material holoMat;
+    public Material foilMat;
+    public Material inverseMat;
+    public Material voidMat;
+
     private void Start()
     {
         moveSpeed = gameManager.cardSpeed;
         cardCanvas = GetComponentInParent<Canvas>();
         dragTargetPos = transform.position; // target start at card's relative starting position
-        cardFace.sprite = cardSprite;
+        ApplyFinish(ID);
+    }
+
+    public void ApplyFinish(CardID cardID)
+    {
+        switch (finish)
+        {
+            case CardFinish.Matte:
+                cardFace.material = normalMat;
+                break;
+            case CardFinish.Holographic:
+                cardFace.material = holoMat;
+                break;
+            case CardFinish.Foil:
+                cardFace.material = foilMat;
+                break;
+            case CardFinish.Inverse:
+                cardFace.material = inverseMat;
+                break;
+            case CardFinish.Void:
+                cardFace.material = voidMat;
+                break;
+        }
+
+        cardFace.sprite = cardID.artwork;
     }
 
     private void Update()
