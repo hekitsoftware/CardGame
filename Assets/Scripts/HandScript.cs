@@ -76,12 +76,11 @@ public class HandScript : MonoBehaviour
                 CardID cardID = cardPool[cardSelection];
 
                 GameObject manifestCard = Instantiate(cardPrefab, handSlots[i].transform);
-                manifestCard.transform.localPosition = Vector3.zero; // centers inside slot
-                Card cardlogic = manifestCard.GetComponent<Card>();
-                cardlogic.dragTargetPos = handSlots[i].transform.position;
+                manifestCard.transform.localPosition = Vector3.zero;
 
                 Card card = manifestCard.GetComponent<Card>();
-                card.SetupCard(cardID, CardFinish.Matte); // or random finish if you want
+                card.SetupCard(cardID, CardFinish.Matte);
+                card.dragTargetPos = handSlots[i].transform.localPosition;
             }
         }
     }
