@@ -8,5 +8,4 @@ public class GameManager : MonoBehaviour
     [SerializeField] public HandScript handScript;
 
     [SerializeField] public List<CardID> Deck;
-    [SerializeField] public List<Material> finishPool;
 }

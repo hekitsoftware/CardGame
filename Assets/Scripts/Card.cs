@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public enum CardFinish
 {
     Matte,
-    Holographic,
+    Chroma,
     Foil,
     Inverse,
     Void,
@@ -96,7 +96,7 @@ public class Card : MonoBehaviour,
         switch (finish)
         {
             case CardFinish.Matte: cardFace.material = normalMat; break;
-            case CardFinish.Holographic: cardFace.material = holoMat; break;
+            case CardFinish.Chroma: cardFace.material = holoMat; break;
             case CardFinish.Foil: cardFace.material = foilMat; break;
             case CardFinish.Inverse: cardFace.material = inverseMat; break;
             case CardFinish.Void: cardFace.material = voidMat; break;

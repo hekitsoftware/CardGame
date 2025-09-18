@@ -41,6 +41,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _MainMat:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -50,6 +54,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_62dfe8c45d514e748c48bd89e9348ff4_Texture_1_Texture2D:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -67,12 +75,20 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - RainbowParalax: 0.23
     - _EnableExternalAlpha: 0
+    - _HoloIntensity: 0
+    - _HoloScale: 0
+    - _HoloSpeed: 6.24
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ZWrite: 0
+    - _bob: 4
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _HoloColour: {r: 1, g: 0, b: 0, a: 1}
+    - _RainbowOffset: {r: 0.33, g: 0, b: 0, a: 0}
+    - _RainbowTiling: {r: 0.22, g: 1, b: 0, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
