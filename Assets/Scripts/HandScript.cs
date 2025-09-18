@@ -101,7 +101,7 @@ public class HandScript : MonoBehaviour
             card.dragTargetPos = handSlots[i].transform.position;
 
             //REDD can't be a Chroma
-            if(cardID.name == "c_redd" && cardFinish == CardFinish.Chroma)
+            if(cardID.Name == "REDD" && cardFinish == CardFinish.Chroma)
             {
                 cardFinish = CardFinish.Void;
             }

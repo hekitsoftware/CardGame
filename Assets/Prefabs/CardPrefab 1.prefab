@@ -228,9 +228,11 @@ MonoBehaviour:
       m_Calls: []
   normalMat: {fileID: 2100000, guid: aa810ba1aec3fd74a9d440a8bd1b356c, type: 2}
   holoMat: {fileID: 2100000, guid: e7a55c5f5ba338d4aa430dda0b4d23b5, type: 2}
-  foilMat: {fileID: 2100000, guid: 7dcc84f4805a28e40aaeb3e71c196a06, type: 2}
+  foilMat: {fileID: 2100000, guid: aa810ba1aec3fd74a9d440a8bd1b356c, type: 2}
   inverseMat: {fileID: 2100000, guid: 948b3aa2f008fa341ab93dd75471f5c7, type: 2}
   voidMat: {fileID: -876546973899608171, guid: 1677a7d93764aa845a7c1a4989c0b4b3, type: 3}
+  hoverScale: 1.1
+  tweenDuration: 0.2
 --- !u!1 &5963068591374948413
 GameObject:
   m_ObjectHideFlags: 0

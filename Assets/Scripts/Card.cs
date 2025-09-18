@@ -64,7 +64,7 @@ public class Card : MonoBehaviour,
     private float rotationSpeed = 1f;
     private float time;
     private float timeOffset;
-    private Vector3 originalScale;
+    public Vector3 originalScale;
 
     [SerializeField] private float hoverScale = 1.1f;
     [SerializeField] private float tweenDuration = 0.2f;
@@ -126,7 +126,7 @@ public class Card : MonoBehaviour,
     }
 
     #region ANIMATIONS
-    private void StartIdleRotation()
+    public void StartIdleRotation()
     {
         // Kill any existing tween just in case
         idleTween?.Kill();
@@ -142,7 +142,7 @@ public class Card : MonoBehaviour,
         .SetEase(Ease.Linear);
     }
 
-    private void StopIdleRotation()
+    public void StopIdleRotation()
     {
         if (idleTween != null && idleTween.IsActive())
         {
@@ -151,8 +151,16 @@ public class Card : MonoBehaviour,
         }
     }
 
-    private void Shrink() => transform.DOScale(originalScale, tweenDuration).SetEase(Ease.OutBack);
-    private void Grow() => transform.DOScale(originalScale * hoverScale, tweenDuration).SetEase(Ease.OutBack);
+    private void Shrink()
+    {
+        transform.DOScale(originalScale, tweenDuration).SetEase(Ease.OutBack);
+        transform.position = new Vector3(transform.position.x, transform.position.y, -1);
+    }
+    private void Grow()
+    {
+        transform.DOScale(originalScale * hoverScale, tweenDuration).SetEase(Ease.OutBack);
+        transform.position = new Vector3(transform.position.x, transform.position.y, -4);
+    }
     #endregion
 
     #region DRAG_EVENTS
