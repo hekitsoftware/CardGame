@@ -1,12 +1,5 @@
 ﻿using UnityEngine;
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using DG.Tweening;
-using System.Linq;
-using JetBrains.Annotations;
-using System.Runtime.CompilerServices;
 
 public class HandScript : MonoBehaviour
 {
@@ -16,8 +9,9 @@ public class HandScript : MonoBehaviour
 
     [Header("Hand")]
     [SerializeField] public List<GameObject> handSlots;
+    [SerializeField] public List<Card> cardsInHand = new List<Card>();
 
-    //Card Pools
+    // Card Pools
     List<CardID> commonCards = new List<CardID>();
     List<CardID> uncommonCards = new List<CardID>();
     List<CardID> rareCards = new List<CardID>();
@@ -35,18 +29,10 @@ public class HandScript : MonoBehaviour
         {
             switch (card.Rarity)
             {
-                case Rarity.Common:
-                    commonCards.Add(card);
-                    break;
-                case Rarity.Uncommon:
-                    uncommonCards.Add(card);
-                    break;
-                case Rarity.Rare:
-                    rareCards.Add(card);
-                    break;
-                case Rarity.Ultra:
-                    ultraCards.Add(card);
-                    break;
+                case Rarity.Common: commonCards.Add(card); break;
+                case Rarity.Uncommon: uncommonCards.Add(card); break;
+                case Rarity.Rare: rareCards.Add(card); break;
+                case Rarity.Ultra: ultraCards.Add(card); break;
             }
         }
     }
@@ -58,19 +44,14 @@ public class HandScript : MonoBehaviour
             if (handSlots[i].transform.childCount == 0)
             {
                 List<CardID> cardPool = null;
-
                 int randomNumber = UnityEngine.Random.Range(0, 100);
-                if (randomNumber < 5)
-                    cardPool = ultraCards;
-                else if (randomNumber < 20)
-                    cardPool = rareCards;
-                else if (randomNumber < 50)
-                    cardPool = uncommonCards;
-                else
-                    cardPool = commonCards;
 
-                if (cardPool == null || cardPool.Count == 0)
-                    continue; // safety check if pool is empty
+                if (randomNumber < 5) cardPool = ultraCards;
+                else if (randomNumber < 20) cardPool = rareCards;
+                else if (randomNumber < 50) cardPool = uncommonCards;
+                else cardPool = commonCards;
+
+                if (cardPool == null || cardPool.Count == 0) continue;
 
                 int cardSelection = UnityEngine.Random.Range(0, cardPool.Count);
                 CardID cardID = cardPool[cardSelection];
@@ -80,9 +61,11 @@ public class HandScript : MonoBehaviour
 
                 Card card = manifestCard.GetComponent<Card>();
                 card.SetupCard(cardID, CardFinish.Matte);
-                card.dragTargetPos = handSlots[i].transform.localPosition;
+                card.dragTargetPos = handSlots[i].transform.position;
+                card.parentSlot = handSlots[i].transform;
+
+                cardsInHand.Add(card);
             }
         }
     }
-
 }
