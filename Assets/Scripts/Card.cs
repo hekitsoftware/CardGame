@@ -69,6 +69,14 @@ public class Card : MonoBehaviour,
     [SerializeField] private float hoverScale = 1.1f;
     [SerializeField] private float tweenDuration = 0.2f;
 
+    [SerializeField] private Sprite cardBack;
+    public bool hiddenFromPlayer;
+
+    public void Render()
+    {
+        cardFace.sprite = hiddenFromPlayer ? cardBack : ID.artwork;
+    }
+
     public void SetupCard(CardID cardID, CardFinish cardFinish)
     {
         ID = cardID;

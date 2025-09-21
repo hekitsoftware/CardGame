@@ -1,0 +1,3 @@
+- Hand Playing (Standard)
+- Other Hand Playing
+- Selecting Cards
