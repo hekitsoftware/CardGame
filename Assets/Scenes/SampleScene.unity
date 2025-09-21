@@ -807,16 +807,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 398feaf5099d52e4994eade08a68ed46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardBackPrefab: {fileID: 7267828179748814114, guid: 17241108b803edf4a8fbd3bb1145740a, type: 3}
+  cardPrefab: {fileID: 3765150918409479008, guid: cb4c99ea8d55b094b9a2b9c4be78a3cd, type: 3}
   gameManager: {fileID: 232058221}
   handSlots:
-  - {fileID: 1019970458}
-  - {fileID: 318007342}
-  - {fileID: 678484457}
-  - {fileID: 615980808}
-  - {fileID: 89487490}
-  - {fileID: 1588367939}
   - {fileID: 184613246}
+  - {fileID: 1588367939}
+  - {fileID: 89487490}
+  - {fileID: 615980808}
+  - {fileID: 678484457}
+  - {fileID: 318007342}
+  - {fileID: 1019970458}
   cardsInHand: []
 --- !u!1 &592046751
 GameObject:
@@ -2264,9 +2264,17 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3709598201433297923, guid: 6dac222a73f80ef439019e3af5fd60a8, type: 3}
+      propertyPath: localHand
+      value: 
+      objectReference: {fileID: 118253802}
+    - target: {fileID: 3709598201433297923, guid: 6dac222a73f80ef439019e3af5fd60a8, type: 3}
       propertyPath: handScript
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3709598201433297923, guid: 6dac222a73f80ef439019e3af5fd60a8, type: 3}
+      propertyPath: opponentHand
+      value: 
+      objectReference: {fileID: 538481753}
     - target: {fileID: 3709598201433297923, guid: 6dac222a73f80ef439019e3af5fd60a8, type: 3}
       propertyPath: Deck.Array.size
       value: 9
@@ -2314,6 +2322,10 @@ PrefabInstance:
     - target: {fileID: 3709598201433297923, guid: 6dac222a73f80ef439019e3af5fd60a8, type: 3}
       propertyPath: finishPool.Array.size
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3709598201433297923, guid: 6dac222a73f80ef439019e3af5fd60a8, type: 3}
+      propertyPath: player1.isLocalPlayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3709598201433297923, guid: 6dac222a73f80ef439019e3af5fd60a8, type: 3}
       propertyPath: 'cardPool.Array.data[0]'

@@ -72,9 +72,10 @@ public class Card : MonoBehaviour,
     [SerializeField] private Sprite cardBack;
     public bool hiddenFromPlayer;
 
-    public void Render()
+    private void Awake()
     {
-        cardFace.sprite = hiddenFromPlayer ? cardBack : ID.artwork;
+        StartIdleRotation();
+        cardFace.sortingOrder = 2; // higher = on top
     }
 
     public void SetupCard(CardID cardID, CardFinish cardFinish)
@@ -82,6 +83,13 @@ public class Card : MonoBehaviour,
         ID = cardID;
         finish = cardFinish;
         ApplyFinish(cardID);
+    }
+    public void Render()
+    {
+        if (hiddenFromPlayer)
+            cardFace.sprite = cardBack;
+        else
+            cardFace.sprite = ID.artwork;
     }
 
     private void Start()
@@ -94,12 +102,6 @@ public class Card : MonoBehaviour,
         originalScale = transform.localScale;
     }
 
-    private void Awake()
-    {
-        StartIdleRotation();
-        cardFace.sortingOrder = 2; // higher = on top
-    }
-
     public void ApplyFinish(CardID cardID)
     {
         switch (finish)
@@ -110,7 +112,9 @@ public class Card : MonoBehaviour,
             case CardFinish.Inverse: cardFace.material = inverseMat; break;
             case CardFinish.Void: cardFace.material = voidMat; break;
         }
-        cardFace.sprite = cardID.artwork;
+
+        // Only show the artwork if the card is NOT hidden
+        cardFace.sprite = hiddenFromPlayer ? cardBack : cardID.artwork;
     }
 
     private void Update()

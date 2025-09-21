@@ -234,6 +234,8 @@ MonoBehaviour:
   originalScale: {x: 0, y: 0, z: 0}
   hoverScale: 1.2
   tweenDuration: 0.2
+  cardBack: {fileID: 21300000, guid: f0a091fe50c796e40a78d31a5ab471c4, type: 3}
+  hiddenFromPlayer: 0
 --- !u!1 &5963068591374948413
 GameObject:
   m_ObjectHideFlags: 0

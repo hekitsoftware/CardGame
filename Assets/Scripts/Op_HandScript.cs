@@ -1,13 +1,31 @@
 using UnityEngine;
-using System.Collections.Generic;
 
-public class OpponentHandScript : MonoBehaviour
+public class OpponentHandScript : HandScript
 {
-    [Header("Instance References")]
-    [SerializeField] private GameObject cardBackPrefab; // prefab with just card back
-    [SerializeField] private GameManager gameManager;
+    public override void RenderHand(PlayerData playerData)
+    {
+        ClearHand();
 
-    [Header("Hand")]
-    [SerializeField] public List<GameObject> handSlots; // slots across the top
-    [SerializeField] private List<Card> cardsInHand = new List<Card>();
+        for (int i = 0; i < playerData.hand.Count && i < handSlots.Count; i++)
+        {
+            GameObject manifestCard = Instantiate(cardPrefab, handSlots[i].transform);
+            manifestCard.transform.localPosition = Vector3.zero;
+
+            Card card = manifestCard.GetComponent<Card>();
+            card.parentSlot = handSlots[i].transform;
+            card.dragTargetPos = handSlots[i].transform.position;
+
+            // Make sure it's always hidden to the local player
+            card.hiddenFromPlayer = true;
+
+            // Setup and render the card after hiding it
+            CardInstance instance = playerData.hand[i];
+            card.SetupCard(instance.cardID, instance.finish);
+
+            // Force render after setting hidden state
+            card.Render();
+
+            cardsInHand.Add(card);
+        }
+    }
 }
