@@ -1,16 +1,13 @@
 using UnityEngine;
+using System.Collections.Generic;
 
-public class Op_HandScript : MonoBehaviour
+public class OpponentHandScript : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [Header("Instance References")]
+    [SerializeField] private GameObject cardBackPrefab; // prefab with just card back
+    [SerializeField] private GameManager gameManager;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [Header("Hand")]
+    [SerializeField] public List<GameObject> handSlots; // slots across the top
+    [SerializeField] private List<Card> cardsInHand = new List<Card>();
 }

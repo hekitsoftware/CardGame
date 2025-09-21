@@ -97,6 +97,7 @@ public class Card : MonoBehaviour,
     private void Awake()
     {
         StartIdleRotation();
+        cardFace.sortingOrder = 2; // higher = on top
     }
 
     public void ApplyFinish(CardID cardID)
@@ -124,12 +125,12 @@ public class Card : MonoBehaviour,
             Vector3 dir = dragTargetPos - transform.position;
             float tiltZ = Mathf.Clamp(dir.x * 5f, -15f, 15f);
             transform.rotation = Quaternion.Euler(0, 0, tiltZ);
-            transform.position = new Vector3(transform.position.x, transform.position.y, -10);
+            cardFace.sortingOrder = 10; // higher = on top
         }
         else
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
-            transform.position = new Vector3(transform.position.x, transform.position.y, -1);
+            cardFace.sortingOrder = 1; // higher = on top
         }
     }
 
@@ -163,12 +164,12 @@ public class Card : MonoBehaviour,
     private void Shrink()
     {
         transform.DOScale(originalScale, tweenDuration).SetEase(Ease.OutBack);
-        transform.position = new Vector3(transform.position.x, transform.position.y, -1);
+        cardFace.sortingOrder = 2; // higher = on top
     }
     private void Grow()
     {
         transform.DOScale(originalScale * hoverScale, tweenDuration).SetEase(Ease.OutBack);
-        transform.position = new Vector3(transform.position.x, transform.position.y, -4);
+        cardFace.sortingOrder = 10; // higher = on top
     }
     #endregion
 
